@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-    angular.module("events-list",[])
+    angular.module("events-list",["ui.router"])
         .factory("listOfEvents",[function () {
             var events = {};
             events.list = [
@@ -27,6 +27,13 @@
                 });
             }
             return events;
+        }])
+        .config(['$stateProvider',function config($stateProvider) {
+            $stateProvider.state('eventslist', {
+                url: '/eventslist',
+                templateUrl: 'templates/main.htm',
+                controller: 'EventsListController'
+            });
         }])
         .controller("EventsListController", ['$state','$scope','listOfEvents','$location', function ($state,$scope,listOfEvents,$location) {
           $scope.eventsList =   listOfEvents.list;

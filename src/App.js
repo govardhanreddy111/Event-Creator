@@ -1,26 +1,29 @@
-var EventCalendarApp = angular.module("Event.Calendar.App",[
-    "ngRoute",
-    "events-list",
-    "create-event",
-    "event-detail-view",
-    "ui.router"
-]);
+(function () {
+    "use strict";
+    angular.module("Event.Calendar.App",[
+        "ngRoute",
+        "events-list",
+        "create-event",
+        "event-detail-view",
+        "ui.router"
+    ])
 
-EventCalendarApp.config(function($routeProvider) {
-    $routeProvider
-    .when("/", {
-        templateUrl : "templates/main.htm",
-        controller:"EventsListController"
+.config(['$stateProvider', '$urlRouterProvider',function ($stateProvider, $urlRouterProvider) {
+        $urlRouterProvider.otherwise( '/eventslist' );
+    }])
+        .controller("headerController",['$scope','$state', function ($scope,$state) {
+            $scope.goToEventList = function () {
+                $state.go("/eventslist");
+            };
+            $scope.createEvent = function () {
+                $state.go("create-event");
+            }
+        }])
+        .controller("CalendarAppController",function($scope,$http,$rootScope,$location){
+        $scope.header_information = "Events";
     })
-    .when("/event-create", {
-        templateUrl : "CreateEvent/create_event.htm",
-        controller : "createCtrl"
-    })
-});
-EventCalendarApp.controller("CalendarAppController",function($scope,$http,$rootScope,$location){
-     $scope.header_information = "Events";
-});
 
-EventCalendarApp.controller("viewCtrl", function ($scope) {
-    $scope.msg = "These are the Events created";
-});
+    .controller("viewCtrl", function ($scope) {
+        $scope.msg = "These are the Events created";
+    });
+})();
