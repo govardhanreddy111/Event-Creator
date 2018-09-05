@@ -9,6 +9,7 @@
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.20/angular-ui-router.js"></script>
      <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
 
      <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -33,9 +34,12 @@
           </div>
           </div>
           <div ng-view></div>
+          <div ui-view></div>
      </div>
      <script type="text/javascript" src="App.js"></script>
      <script type="text/javascript" src="EventsList/eventsList.js"></script>
      <script type="text/javascript" src="CreateEvent/createEvent.js"></script>
+     <script type="text/javascript" src="EventDetailView/eventDetailView.js"></script>
+
 </body>
 </html>

@@ -1,2 +1,9 @@
-<p>Here we go</p>
-<h1>{{msg}}</h1>
+<div>
+    <div>{{event.name}}</div>
+    <div>{{event.start_date}}</div>
+    <div>{{event.end_date}}</div>
+    <div>{{event.location}}</div>
+    <div>{{event.desc}}</div>
+    <button ng-click="editEvent()">Edit Event</button>
+    <button ng-click="deleteEvent()">Delete Event</button>
+</div>
