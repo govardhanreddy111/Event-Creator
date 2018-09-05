@@ -10,9 +10,28 @@
         <p>ECA is the most simple way to add a stunning Event Calendar to your website. Install in minutes.</p>
     </div>
     <div id="events-list">
-        <div ng-repeat="event in eventsList" ng-click="goToViewEvent(event)">
-            <div>{{event.name}}</div>
-            <div>{{event.location}}</div>
+        <div style="text-align: center;" class="Serch-component">
+            <form class="form-inline">
+                <input type="text" ng-model="eventSearch" class="SearchInput">
+                <input type="submit" value="Search" id="ContactDetail" class="btn btn-sm btn-success SearchInput"
+                       ng-click="SearchEvent()">
+            </form>
+        </div>
+        <div ng-repeat="event in eventsList | filter : UserSearch" ng-click="goToViewEvent(event)" class="event_tile">
+            <div class="event-tab">
+                <div class="color_label">
+                    <div class="span-label" ng-style="event.bgcolor" style="background:hotpink"></div>
+                </div>
+                <div class="color_label">
+                    <div>{{event.name}}</div>
+                    <div>{{event.location}}</div>
+                </div>
+                <div class="color_label">
+                    <div>{{event.start_date | date}}</div>
+                </div>
+            </div>
+
+
         </div>
     </div>
 

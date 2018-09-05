@@ -68,7 +68,7 @@ a:hover, a:focus, a:active {
   }
   .text-wrap{
      position: absolute;
-     top: 30%;
+     top: 18%;
      left: 5%;
      width: 50%;
 
@@ -76,6 +76,70 @@ a:hover, a:focus, a:active {
   }
   .form-group{
      text-align: left;
+  }
+  .event_tile{
+    width: 50%;
+    height:80px;
+    border: 1px solid #ededed;
+    margin: 10px auto;
+    cursor:pointer;
+    border-radius:3px;
+  }
+  .event_tile:hover{
+    border: 1px solid #ccc;
+  }
+  .color_label{
+    display:inline-block;
+    padding-left:15px;
+  }
+  .span-label{
+
+    width:30px;
+    height:30px;
+    padding:10px 15px;
+
+  }
+  .event_tile{
+    position:relative;
+  }
+  .event-tab{
+    position:absolute;
+    top:50%;
+    transform: translate(5%, -50%);
+  }
+  .event-tab div{
+    font-size:20px;
+  }
+  .Event-form{
+    padding: 0px 10px;
+  }
+  .form-group label{
+    min-height:15px;
+  }
+  .SearchInput{
+    height:36px;
+  }
+  .Serch-component{
+    text-align:center;
+    margin-top:20px;
+  }
+  .btn-success{
+    vertical-align:top;
+  }
+  .View-Event{
+      width: 60%;
+      height: 250px;
+      margin: 30px auto;
+      border: 1px solid #ededed;
+      background: #f6f6f5;
+      padding: 30px;
+  }
+  .Event-Head{
+    font-size:25px;
+  }
+  .View-Event button{
+    height:36px;
+
   }
 
 
@@ -108,10 +172,20 @@ a:hover, a:focus, a:active {
       }
       .text-wrap {
          position: absolute;
-         top: 20%;
+         top: 10%;
          left: 5%;
          width: 70%;
      }
+     .event-tab div {
+         font-size: 16px;
+     }
+     .event_tile {
+         width: 80%;
+         }
+     .View-Event {
+         width: 90%;
+         height: 295px;
+         }
 }
 /*end mobile css*/
 /* Portrait and Landscape */
@@ -119,6 +193,21 @@ a:hover, a:focus, a:active {
   and (min-device-width: 768px)
   and (max-device-width: 1024px)
   and (-webkit-min-device-pixel-ratio: 1) {
-
+    .event_tile {
+        width: 500px;
+        height: 100px;
+        }
+        .text-wrap {
+        position: absolute;
+        top: 2%;
+        }
+    .View-Event {
+        width: 90%;
+        height: 260px;
+        }
+        .SearchInput {
+            height: 36px;
+            border: 1px solid #ededed;
+        }
 }
 /*end ipad css*/
