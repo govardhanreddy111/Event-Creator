@@ -5,6 +5,7 @@
         "events-list",
         "create-event",
         "event-detail-view",
+        "edit-event",
         "ui.router"
     ])
 
