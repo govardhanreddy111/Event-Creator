@@ -8,16 +8,19 @@
                 controller: 'eventDetailViewController'
             });
         }])
-        .controller("eventDetailViewController",['$stateParams','listOfEvents','$scope','$location', function ($stateParams,listOfEvents,$scope,$location) {
+        .controller("eventDetailViewController",['$stateParams','listOfEvents','$scope','$state', function ($stateParams,listOfEvents,$scope,$state) {
             var eventsList = listOfEvents.list;
             angular.forEach(eventsList,function (event) {
                 if(event.id === parseInt($stateParams.id)){
                     $scope.event = event;
                 }
             });
+            $scope.editEvent = function () {
+                $state.go("editevent",{'id' : $scope.event.id});
+            }
             $scope.deleteEvent = function () {
                 listOfEvents.delete($scope.event.id);
-                $location.path("/");
+                $state.go("eventslist");
             };
         }])
 })();

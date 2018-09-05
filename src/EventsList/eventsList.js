@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-    angular.module("events-list",[])
+    angular.module("events-list",["ui.router"])
         .factory("listOfEvents",[function () {
         var getRandomColor = function () {
         return {
@@ -18,8 +18,9 @@
             events.create = function (event) {
                 events.list.push(event);
             };
-            events.update = function () {
-
+            events.update = function (event) {
+               this.delete(event.id);
+               this.create(event);
             }
             events.delete = function (id) {
                 angular.forEach(events.list, function (listEvent,key) {
@@ -29,6 +30,13 @@
                 });
             }
             return events;
+        }])
+        .config(['$stateProvider',function config($stateProvider) {
+            $stateProvider.state('eventslist', {
+                url: '/eventslist',
+                templateUrl: 'templates/main.htm',
+                controller: 'EventsListController'
+            });
         }])
         .controller("EventsListController", ['$state','$scope','listOfEvents','$location', function ($state,$scope,listOfEvents,$location) {
                 // search function
