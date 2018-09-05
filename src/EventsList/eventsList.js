@@ -16,8 +16,9 @@
             events.create = function (event) {
                 events.list.push(event);
             };
-            events.update = function () {
-
+            events.update = function (event) {
+               this.delete(event.id);
+               this.create(event);
             }
             events.delete = function (id) {
                 angular.forEach(events.list, function (listEvent,key) {

@@ -8,6 +8,12 @@
                 controller: 'createCtrl'
             });
         }])
+        .directive("inputTemplate",[function () {
+            return{
+                restrict : 'E',
+                templateUrl : 'CreateEvent/inputTemplate.html'
+            }
+        }])
         .controller("createCtrl", ['$scope','listOfEvents','$location', function ($scope,listOfEvents,$location) {
             $scope.newEvent = {}
             $scope.AddToEvent = function () {
